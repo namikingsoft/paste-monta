@@ -1,0 +1,35 @@
+.paste-monta__monta {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #fef49c;
+  -webkit-box-shadow: 1px 1px  10px rgba(0,0,0,0.4);
+  -webkit-transition: all 300ms ease-in;
+}
+.paste-monta__monta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 10px 10px 0;
+  border-style: solid;
+  border-color: #fff #fff #edb918 #edb918;
+  display: block;
+  -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -webkit-transition: all 300ms ease-in;
+}
+.paste-monta__monta.removing {
+  width: 0;
+  height: 0;
+  left: -50%;
+  bottom: -50%;
+}
+.paste-monta__monta.removing:before {
+  border-width: 0 75px 50px 0;
+  opacity: 0.15;
+}

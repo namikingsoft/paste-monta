@@ -1,0 +1,11 @@
+body {
+  width: 500px;
+}
+
+form {
+  margin: 0 10px;
+}
+
+.mdl-textfield {
+  width: 100%;
+}
