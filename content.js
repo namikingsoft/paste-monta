@@ -9,6 +9,7 @@ const createMontaElement = () => {
   const monta = document.createElement('div');
   monta.setAttribute('class', 'paste-monta__monta');
   monta.addEventListener('click', e => {
+    e.preventDefault();
     e.stopImmediatePropagation();
     monta.classList.add('removing');
     setTimeout(() => monta.remove(), 350);
@@ -58,12 +59,17 @@ chrome.runtime.sendMessage('getStorage', ({ montas, styles }) => {
 document.addEventListener('DOMContentLoaded', () => {
   chrome.runtime.sendMessage('getStorage', ({ montas }) => {
     parseMontas(montas).forEach(selector => {
-      [].forEach.call(document.querySelectorAll(selector), element => {
-        const monta = createMontaElement();
-        element.style.position = 'relative';
-        element.style.visibility = 'visible';
-        element.appendChild(monta);
-      });
+      const polling = () => {
+        [].forEach.call(document.querySelectorAll(selector), element => {
+          if( element.style.visibility === 'visible') return;
+          const monta = createMontaElement();
+          element.style.position = 'relative';
+          element.style.visibility = 'visible';
+          element.appendChild(monta);
+        });
+        setTimeout(polling, 500);
+      };
+      polling();
     });
   });
 });
