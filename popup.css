@@ -9,3 +9,21 @@ form {
 .mdl-textfield {
   width: 100%;
 }
+
+.footer {
+  padding: 10px;
+  background-color: #333;
+}
+
+.footer i {
+  font-size: 1.2em;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .copyright {
+  float: right;
+}
