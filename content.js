@@ -51,7 +51,6 @@ chrome.runtime.sendMessage('getStorage', ({ montas, styles }) => {
     style.sheet.insertRule(`${selector} { visibility: hidden; }`, 0);
   });
   parseStyles(styles).forEach(rule => {
-    console.log(rule);
     style.sheet.insertRule(rule, 0);
   });
 });
